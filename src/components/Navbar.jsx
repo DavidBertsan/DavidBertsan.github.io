@@ -25,9 +25,9 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-        <span className="text-xl text-white font-semibold tracking-tight">
+        <a href="#" className="text-xl text-white font-semibold tracking-tight hover:opacity-80 transition-opacity">
           d<span className="text-accent">/</span>b
-        </span>
+        </a>
         <ul className="flex gap-8">
           {links.map((link) => (
             <li key={link.href}>
