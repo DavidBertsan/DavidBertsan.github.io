@@ -1,13 +1,20 @@
 import { useEffect, useState } from 'react'
-
-const titles = ['Android Developer', 'Kotlin Enthusiast', 'DAM Graduate']
+import { useLang } from '../LangContext'
 
 export default function Hero() {
+  const { lang, t } = useLang()
   const [titleIndex, setTitleIndex] = useState(0)
   const [displayed, setDisplayed] = useState('')
   const [deleting, setDeleting] = useState(false)
 
   useEffect(() => {
+    setTitleIndex(0)
+    setDisplayed('')
+    setDeleting(false)
+  }, [lang])
+
+  useEffect(() => {
+    const titles = t.hero_titles
     const current = titles[titleIndex]
     let timeout
 
@@ -23,7 +30,7 @@ export default function Hero() {
     }
 
     return () => clearTimeout(timeout)
-  }, [displayed, deleting, titleIndex])
+  }, [displayed, deleting, titleIndex, t.hero_titles])
 
   return (
     <section className="min-h-screen flex flex-col items-center justify-center px-6 text-center relative overflow-hidden">
@@ -33,7 +40,7 @@ export default function Hero() {
 
       <div className="relative animate-fade-in">
         <p className="text-accent text-sm font-medium tracking-widest uppercase mb-4">
-          Hello, I'm
+          {t.hero_greeting}
         </p>
         <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 tracking-tight">
           David Bertomeu
@@ -66,7 +73,7 @@ export default function Hero() {
             href="#projects"
             className="px-6 py-3 border border-white/10 hover:border-accent/50 text-gray-300 hover:text-white text-sm font-medium rounded-lg transition-all duration-200 hover:-translate-y-0.5"
           >
-            View Projects
+            {t.hero_cta}
           </a>
         </div>
       </div>
@@ -75,7 +82,7 @@ export default function Hero() {
         href="#about"
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-gray-600 hover:text-gray-400 transition-colors"
       >
-        <span className="text-xs tracking-widest uppercase">Scroll</span>
+        <span className="text-xs tracking-widest uppercase">{t.hero_scroll}</span>
         <div className="w-px h-8 bg-gradient-to-b from-gray-600 to-transparent" />
       </a>
     </section>

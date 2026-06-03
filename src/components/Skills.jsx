@@ -1,41 +1,30 @@
+import { useLang } from '../LangContext'
+
 const groups = [
-  {
-    label: 'Mobile',
-    skills: ['Kotlin', 'Android', 'Jetpack Compose', 'KMP', 'MVVM', 'Clean Architecture'],
-  },
-  {
-    label: 'Backend',
-    skills: ['Ktor', 'PostgreSQL', 'REST API', 'HikariCP'],
-  },
-  {
-    label: 'Frontend',
-    skills: ['React', 'CSS', 'JavaScript', 'HTML'],
-  },
-  {
-    label: 'Tools',
-    skills: ['Android Studio', 'IntelliJ IDEA', 'Git', 'GitHub', 'Gradle'],
-  },
+  { labelKey: 'Mobile',    skills: ['Kotlin', 'Jetpack Compose', 'KMP', 'MVVM', 'Clean Architecture'] },
+  { labelKey: 'Backend',   skills: ['Ktor', 'PostgreSQL', 'REST API', 'HikariCP'] },
+  { labelKey: 'Frontend',  skills: ['React', 'CSS', 'JavaScript', 'HTML'] },
+  { labelKey: 'tools',     skills: ['Android Studio', 'IntelliJ IDEA', 'Git', 'GitHub'] },
 ]
 
 export default function Skills() {
+  const { t } = useLang()
+
   return (
     <section id="skills" className="py-28 px-6 bg-surface/40">
       <div className="max-w-3xl mx-auto">
         <p className="reveal text-accent text-sm font-medium tracking-widest uppercase mb-3">
-          Skills
+          {t.skills_label}
         </p>
         <h2 className="reveal reveal-delay-1 text-3xl md:text-4xl font-bold text-white mb-12 tracking-tight">
-          What I work with
+          {t.skills_heading}
         </h2>
 
         <div className="grid sm:grid-cols-2 gap-8">
           {groups.map((group, i) => (
-            <div
-              key={group.label}
-              className={`reveal reveal-delay-${(i % 4) + 1}`}
-            >
+            <div key={group.labelKey} className={`reveal reveal-delay-${(i % 4) + 1}`}>
               <h3 className="text-sm font-semibold text-accent tracking-widest uppercase mb-4">
-                {group.label}
+                {group.labelKey === 'tools' ? t.skills_tools : group.labelKey}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {group.skills.map((skill) => (

@@ -1,16 +1,22 @@
+import { useLang } from '../LangContext'
+
 const projects = [
   {
     title: 'QuickAdapt',
-    description:
-      'Business management app for SMEs — inventory, time tracking, projects, internal messaging and analytics. Built as my TFG for the DAM degree.',
+    description: {
+      en: 'Business management app for SMEs — inventory, time tracking, projects, internal messaging and analytics. Built as my TFG for the DAM degree.',
+      es: 'App de gestión empresarial para PYMEs — inventario, control de jornada, proyectos, mensajería interna y analíticas. Desarrollado como TFG del ciclo DAM.',
+    },
     tags: ['Kotlin', 'KMP', 'Jetpack Compose', 'Clean Architecture', 'Ktor Client'],
     github: 'https://github.com/DavidBertsan/QuickAdapt',
     accent: '#6366f1',
   },
   {
     title: 'QuickAdapt Backend',
-    description:
-      'REST API server for QuickAdapt. Multi-tenant PostgreSQL schema with soft delete, BCrypt authentication and HikariCP connection pooling.',
+    description: {
+      en: 'REST API server for QuickAdapt. Multi-tenant PostgreSQL schema with soft delete, BCrypt authentication and HikariCP connection pooling.',
+      es: 'Servidor REST API para QuickAdapt. Esquema PostgreSQL multi-tenant con soft delete, autenticación BCrypt y pool de conexiones HikariCP.',
+    },
     tags: ['Ktor', 'PostgreSQL', 'HikariCP', 'BCrypt'],
     github: 'https://github.com/DavidBertsan/QuickAdapt_backend',
     accent: '#8b5cf6',
@@ -18,14 +24,16 @@ const projects = [
 ]
 
 export default function Projects() {
+  const { lang, t } = useLang()
+
   return (
     <section id="projects" className="py-28 px-6">
       <div className="max-w-3xl mx-auto">
         <p className="reveal text-accent text-sm font-medium tracking-widest uppercase mb-3">
-          Projects
+          {t.projects_label}
         </p>
         <h2 className="reveal reveal-delay-1 text-3xl md:text-4xl font-bold text-white mb-12 tracking-tight">
-          Things I've built
+          {t.projects_heading}
         </h2>
 
         <div className="space-y-6">
@@ -51,7 +59,7 @@ export default function Projects() {
                 </a>
               </div>
               <p className="text-gray-400 text-sm leading-relaxed mb-4">
-                {project.description}
+                {project.description[lang]}
               </p>
               <div className="flex flex-wrap gap-2">
                 {project.tags.map((tag) => (

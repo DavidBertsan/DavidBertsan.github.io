@@ -1,15 +1,19 @@
+import { useLang } from '../LangContext'
+
 export default function Contact() {
+  const { t } = useLang()
+
   return (
     <section id="contact" className="py-28 px-6 bg-surface/40">
       <div className="max-w-3xl mx-auto text-center">
         <p className="reveal text-accent text-sm font-medium tracking-widest uppercase mb-3">
-          Contact
+          {t.contact_label}
         </p>
         <h2 className="reveal reveal-delay-1 text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
-          Let's talk
+          {t.contact_heading}
         </h2>
         <p className="reveal reveal-delay-2 text-gray-400 mb-10 text-lg">
-          I'm open to new opportunities. If you have a role, a project, or just want to connect — reach out.
+          {t.contact_body}
         </p>
 
         <div className="reveal reveal-delay-3 flex flex-col sm:flex-row gap-4 justify-center">

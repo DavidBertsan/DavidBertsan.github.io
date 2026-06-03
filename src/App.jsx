@@ -1,3 +1,4 @@
+import { LangProvider } from './LangContext'
 import { useScrollReveal } from './hooks/useScrollReveal'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
@@ -10,19 +11,21 @@ function App() {
   useScrollReveal()
 
   return (
-    <div className="min-h-screen bg-base text-gray-300 font-sans">
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Contact />
-      </main>
-      <footer className="py-8 text-center text-gray-600 text-sm border-t border-white/5">
-        <p>David Bertomeu Sánchez · {new Date().getFullYear()}</p>
-      </footer>
-    </div>
+    <LangProvider>
+      <div className="min-h-screen bg-base text-gray-300 font-sans">
+        <Navbar />
+        <main>
+          <Hero />
+          <About />
+          <Skills />
+          <Projects />
+          <Contact />
+        </main>
+        <footer className="py-8 text-center text-gray-600 text-sm border-t border-white/5">
+          <p>David Bertomeu Sánchez · {new Date().getFullYear()}</p>
+        </footer>
+      </div>
+    </LangProvider>
   )
 }
 
