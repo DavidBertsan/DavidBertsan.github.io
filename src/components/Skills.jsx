@@ -5,11 +5,11 @@ const groups = [
   },
   {
     label: 'Backend',
-    skills: ['Ktor', 'PostgreSQL', 'Docker', 'REST API', 'HikariCP'],
+    skills: ['Ktor', 'PostgreSQL', 'REST API', 'HikariCP'],
   },
   {
     label: 'Frontend',
-    skills: ['React', 'Tailwind CSS', 'JavaScript', 'HTML & CSS'],
+    skills: ['React', 'CSS', 'JavaScript', 'HTML'],
   },
   {
     label: 'Tools',

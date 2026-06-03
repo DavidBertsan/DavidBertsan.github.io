@@ -10,8 +10,8 @@ const projects = [
   {
     title: 'QuickAdapt Backend',
     description:
-      'REST API server for QuickAdapt. Multi-tenant PostgreSQL schema with soft delete, BCrypt auth, HikariCP connection pooling and Docker support.',
-    tags: ['Ktor', 'PostgreSQL', 'Docker', 'HikariCP', 'BCrypt'],
+      'REST API server for QuickAdapt. Multi-tenant PostgreSQL schema with soft delete, BCrypt authentication and HikariCP connection pooling.',
+    tags: ['Ktor', 'PostgreSQL', 'HikariCP', 'BCrypt'],
     github: 'https://github.com/DavidBertsan/QuickAdapt_backend',
     accent: '#8b5cf6',
   },
