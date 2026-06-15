@@ -2,6 +2,17 @@ import { useLang } from '../LangContext'
 
 const projects = [
   {
+    title: 'Client App',
+    description: {
+      en: 'KMP mobile app built during an internship to manage hosting services, domains, DNS records and servers through a custom REST API. Features JWT auth with token refresh and demo mode with mock data.',
+      es: 'App móvil KMP desarrollada durante prácticas para gestionar servicios de hosting, dominios, registros DNS y servidores a través de una API REST propia. Incluye autenticación JWT con refresh token y modo demo con datos mock.',
+    },
+    tags: ['Kotlin', 'KMP', 'Jetpack Compose', 'Clean Architecture', 'Ktor', 'Koin'],
+    github: 'https://github.com/DavidBertsan/client-app',
+    accent: '#f59e0b',
+    wip: true,
+  },
+  {
     title: 'QuickAdapt',
     description: {
       en: 'Business management app for SMEs — inventory, time tracking, projects, internal messaging and analytics. Built as my TFG for the DAM degree.',
@@ -43,9 +54,16 @@ export default function Projects() {
               className={`reveal reveal-delay-${i + 1} group p-6 rounded-xl border border-white/8 bg-surface/60 glow hover:border-accent/30 transition-all duration-300`}
             >
               <div className="flex items-start justify-between gap-4 mb-3">
-                <h3 className="text-lg font-semibold text-white group-hover:text-accent-light transition-colors">
-                  {project.title}
-                </h3>
+                <div className="flex items-center gap-2">
+                  <h3 className="text-lg font-semibold text-white group-hover:text-accent-light transition-colors">
+                    {project.title}
+                  </h3>
+                  {project.wip && (
+                    <span className="px-2 py-0.5 text-xs font-medium rounded-full bg-amber-500/15 text-amber-400 border border-amber-500/25">
+                      {lang === 'es' ? 'En curso' : 'In Progress'}
+                    </span>
+                  )}
+                </div>
                 <a
                   href={project.github}
                   target="_blank"
