@@ -10,7 +10,6 @@ const projects = [
     tags: ['Kotlin', 'KMP', 'Jetpack Compose', 'Clean Architecture', 'Ktor', 'Koin'],
     github: 'https://github.com/DavidBertsan/client-app',
     accent: '#f59e0b',
-    wip: true,
   },
   {
     title: 'QuickAdapt',
