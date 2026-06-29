@@ -4,8 +4,8 @@ const projects = [
   {
     title: 'Client App',
     description: {
-      en: 'KMP mobile app built during an internship to manage hosting services, domains, DNS records and servers through a custom REST API. Features JWT auth with token refresh and demo mode with mock data.',
-      es: 'App móvil KMP desarrollada durante prácticas para gestionar servicios de hosting, dominios, registros DNS y servidores a través de una API REST propia. Incluye autenticación JWT con refresh token y modo demo con datos mock.',
+      en: 'Managing hosting services, domains and DNS from a phone — that was the gap. Built during my internship alongside another developer, connecting to a custom REST API with JWT auth and auto refresh. Includes full demo mode with mocks so it runs without the real server.',
+      es: 'Gestionar servicios de hosting, dominios y DNS desde el móvil — ese era el hueco. Construida durante mis prácticas junto a otro desarrollador, conecta con una API REST propia con autenticación JWT y refresco automático. Incluye modo demo completo con mocks para funcionar sin el servidor real.',
     },
     tags: ['Kotlin', 'KMP', 'Jetpack Compose', 'Clean Architecture', 'Ktor', 'Koin'],
     github: 'https://github.com/DavidBertsan/client-app',
@@ -14,8 +14,8 @@ const projects = [
   {
     title: 'QuickAdapt',
     description: {
-      en: 'Business management app for SMEs — inventory, time tracking, projects, internal messaging and analytics. Built as my TFG for the DAM degree.',
-      es: 'App de gestión empresarial para PYMEs — inventario, control de jornada, proyectos, mensajería interna y analíticas. Desarrollado como TFG del ciclo DAM.',
+      en: 'Most SMEs manage their business with spreadsheets or tools that don\'t fit. QuickAdapt covers inventory, time tracking, projects and messaging in one app — with a custom Ktor backend, multi-company support and Clean Architecture from day one.',
+      es: 'La mayoría de las PYMEs gestionan su negocio con hojas de cálculo o herramientas que no encajan. QuickAdapt cubre inventario, control de jornada, proyectos y mensajería en una app — con backend Ktor propio, soporte multi-empresa y Clean Architecture desde el primer día.',
     },
     tags: ['Kotlin', 'KMP', 'Jetpack Compose', 'Clean Architecture', 'Ktor Client'],
     github: 'https://github.com/DavidBertsan/QuickAdapt',
@@ -24,8 +24,8 @@ const projects = [
   {
     title: 'QuickAdapt Backend',
     description: {
-      en: 'REST API server for QuickAdapt. Multi-tenant PostgreSQL schema with soft delete, BCrypt authentication and HikariCP connection pooling.',
-      es: 'Servidor REST API para QuickAdapt. Esquema PostgreSQL multi-tenant con soft delete, autenticación BCrypt y pool de conexiones HikariCP.',
+      en: 'The server behind QuickAdapt. Multi-tenant PostgreSQL with soft delete to keep each company\'s data isolated, BCrypt auth and HikariCP for production-grade connection handling.',
+      es: 'El servidor detrás de QuickAdapt. PostgreSQL multi-tenant con soft delete para aislar datos por empresa, autenticación BCrypt y HikariCP para gestión de conexiones en producción.',
     },
     tags: ['Ktor', 'PostgreSQL', 'HikariCP', 'BCrypt'],
     github: 'https://github.com/DavidBertsan/QuickAdapt_backend',
