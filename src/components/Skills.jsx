@@ -1,10 +1,9 @@
 import { useLang } from '../LangContext'
 
 const groups = [
-  { labelKey: 'Mobile',    skills: ['Kotlin', 'Jetpack Compose', 'KMP', 'MVVM', 'Clean Architecture'] },
+  { labelKey: 'Mobile',    skills: ['Kotlin', 'Jetpack Compose', 'KMP', 'Coroutines', 'MVVM', 'Clean Architecture', 'Koin'] },
   { labelKey: 'Backend',   skills: ['Ktor', 'PostgreSQL', 'REST API', 'HikariCP'] },
-  { labelKey: 'Frontend',  skills: ['React', 'CSS', 'JavaScript', 'HTML'] },
-  { labelKey: 'tools',     skills: ['Android Studio', 'IntelliJ IDEA', 'Git', 'GitHub'] },
+  { labelKey: 'tools',     skills: ['Android Studio', 'IntelliJ IDEA', 'Git', 'GitHub', 'Scrum'] },
 ]
 
 export default function Skills() {
@@ -27,10 +26,11 @@ export default function Skills() {
                 {group.labelKey === 'tools' ? t.skills_tools : group.labelKey}
               </h3>
               <div className="flex flex-wrap gap-2">
-                {group.skills.map((skill) => (
+                {group.skills.map((skill, idx) => (
                   <span
                     key={skill}
-                    className="px-3 py-1.5 text-sm text-gray-300 bg-white/5 border border-white/8 rounded-md hover:border-accent/40 hover:text-white transition-all duration-200"
+                    className="chip-animate px-3 py-1.5 text-sm text-gray-300 bg-white/5 border border-white/8 rounded-md hover:border-accent/40 hover:text-white transition-all duration-200"
+                    style={{ animationDelay: `${i * 0.1 + idx * 0.05}s` }}
                   >
                     {skill}
                   </span>

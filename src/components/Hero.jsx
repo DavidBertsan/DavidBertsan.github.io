@@ -39,6 +39,11 @@ export default function Hero() {
       </div>
 
       <div className="relative animate-fade-in">
+        <div className="flex justify-center mb-4">
+          <span className="px-3 py-1 text-xs font-medium rounded-full bg-accent/10 text-accent border border-accent/20">
+            {lang === 'es' ? 'Disponible · Remoto' : 'Available · Open to Remote'}
+          </span>
+        </div>
         <p className="text-accent text-sm font-medium tracking-widest uppercase mb-4">
           {t.hero_greeting}
         </p>
@@ -68,6 +73,13 @@ export default function Hero() {
             className="px-6 py-3 border border-white/10 hover:border-accent/50 text-gray-300 hover:text-white text-sm font-medium rounded-lg transition-all duration-200 hover:-translate-y-0.5"
           >
             LinkedIn
+          </a>
+          <a
+            href="/Curriculum.pdf"
+            download
+            className="px-6 py-3 border border-white/10 hover:border-accent/50 text-gray-300 hover:text-white text-sm font-medium rounded-lg transition-all duration-200 hover:-translate-y-0.5"
+          >
+            {t.hero_cv}
           </a>
           <a
             href="#projects"

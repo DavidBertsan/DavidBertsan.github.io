@@ -1,12 +1,14 @@
+import { useState, useEffect } from 'react'
 import { useLang } from '../LangContext'
 
 const projects = [
   {
-    title: 'Client App',
+    title: 'Client App — Panel de Control Móvil',
     description: {
       en: 'Managing hosting services, domains and DNS from a phone — that was the gap. Built during my internship alongside another developer, connecting to a custom REST API with JWT auth and auto refresh. Includes full demo mode with mocks so it runs without the real server.',
       es: 'Gestionar servicios de hosting, dominios y DNS desde el móvil — ese era el hueco. Construida durante mis prácticas junto a otro desarrollador, conecta con una API REST propia con autenticación JWT y refresco automático. Incluye modo demo completo con mocks para funcionar sin el servidor real.',
     },
+    images: ['/screenshots/clientapp-login.png', '/screenshots/clientapp.png', '/screenshots/clientapp-domains.png', '/screenshots/clientapp-hostings.png'],
     tags: ['Kotlin', 'KMP', 'Jetpack Compose', 'Clean Architecture', 'Ktor', 'Koin'],
     github: 'https://github.com/DavidBertsan/client-app',
     accent: '#f59e0b',
@@ -17,6 +19,7 @@ const projects = [
       en: 'Most SMEs manage their business with spreadsheets or tools that don\'t fit. QuickAdapt covers inventory, time tracking, projects and messaging in one app — with a custom Ktor backend, multi-company support and Clean Architecture from day one.',
       es: 'La mayoría de las PYMEs gestionan su negocio con hojas de cálculo o herramientas que no encajan. QuickAdapt cubre inventario, control de jornada, proyectos y mensajería en una app — con backend Ktor propio, soporte multi-empresa y Clean Architecture desde el primer día.',
     },
+    images: ['/screenshots/quickadapt.png', '/screenshots/quickadapt-light.png', '/screenshots/quickadapt-messages.png', '/screenshots/quickadapt-movements.png'],
     tags: ['Kotlin', 'KMP', 'Jetpack Compose', 'Clean Architecture', 'Ktor Client'],
     github: 'https://github.com/DavidBertsan/QuickAdapt',
     accent: '#6366f1',
@@ -35,8 +38,21 @@ const projects = [
 
 export default function Projects() {
   const { lang, t } = useLang()
+  const [lightbox, setLightbox] = useState(null)
+
+  useEffect(() => {
+    const onKey = (e) => {
+      if (!lightbox) return
+      if (e.key === 'Escape') setLightbox(null)
+      if (e.key === 'ArrowRight') setLightbox(lb => ({ ...lb, index: (lb.index + 1) % lb.images.length }))
+      if (e.key === 'ArrowLeft') setLightbox(lb => ({ ...lb, index: (lb.index - 1 + lb.images.length) % lb.images.length }))
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [lightbox])
 
   return (
+    <>
     <section id="projects" className="py-28 px-6">
       <div className="max-w-3xl mx-auto">
         <p className="reveal text-accent text-sm font-medium tracking-widest uppercase mb-3">
@@ -52,6 +68,19 @@ export default function Projects() {
               key={project.title}
               className={`reveal reveal-delay-${i + 1} group p-6 rounded-xl border border-white/8 bg-surface/60 glow hover:border-accent/30 transition-all duration-300`}
             >
+              {project.images && (
+                <div className="mb-4 rounded-lg bg-black/20 border border-white/8 flex justify-center gap-6 py-4 px-4 overflow-x-auto">
+                  {project.images.map((src, idx) => (
+                    <img
+                      key={idx}
+                      src={src}
+                      alt={`${project.title} screenshot ${idx + 1}`}
+                      className="h-52 w-auto rounded-lg shadow-xl flex-shrink-0 transition-transform duration-300 hover:scale-105 cursor-zoom-in"
+                    onClick={() => setLightbox({ images: project.images, index: idx })}
+                    />
+                  ))}
+                </div>
+              )}
               <div className="flex items-start justify-between gap-4 mb-3">
                 <div className="flex items-center gap-2">
                   <h3 className="text-lg font-semibold text-white group-hover:text-accent-light transition-colors">
@@ -93,5 +122,61 @@ export default function Projects() {
         </div>
       </div>
     </section>
+
+    {lightbox && (
+      <div
+        className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+        onClick={() => setLightbox(null)}
+      >
+        {/* X */}
+        <button
+          className="absolute top-5 right-5 text-white/70 hover:text-white transition-colors"
+          onClick={() => setLightbox(null)}
+        >
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+
+        {/* Prev */}
+        {lightbox.images.length > 1 && (
+          <button
+            className="absolute left-4 text-white/70 hover:text-white transition-colors p-2"
+            onClick={(e) => { e.stopPropagation(); setLightbox(lb => ({ ...lb, index: (lb.index - 1 + lb.images.length) % lb.images.length })) }}
+          >
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M15 18l-6-6 6-6"/>
+            </svg>
+          </button>
+        )}
+
+        <img
+          src={lightbox.images[lightbox.index]}
+          alt="Screenshot expanded"
+          className="max-h-[90vh] max-w-[80vw] rounded-xl shadow-2xl"
+          onClick={(e) => e.stopPropagation()}
+        />
+
+        {/* Next */}
+        {lightbox.images.length > 1 && (
+          <button
+            className="absolute right-4 text-white/70 hover:text-white transition-colors p-2"
+            onClick={(e) => { e.stopPropagation(); setLightbox(lb => ({ ...lb, index: (lb.index + 1) % lb.images.length })) }}
+          >
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M9 18l6-6-6-6"/>
+            </svg>
+          </button>
+        )}
+
+        {/* Dots */}
+        <div className="absolute bottom-5 flex gap-2">
+          {lightbox.images.map((_, i) => (
+            <div key={i} className={`w-2 h-2 rounded-full transition-colors ${i === lightbox.index ? 'bg-white' : 'bg-white/30'}`} />
+          ))}
+        </div>
+      </div>
+    )}
+    </>
   )
 }
