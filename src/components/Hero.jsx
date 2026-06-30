@@ -75,7 +75,7 @@ export default function Hero() {
             LinkedIn
           </a>
           <a
-            href="/Curriculum.pdf"
+            href={lang === 'es' ? '/CV.pdf' : '/CV_EN.pdf'}
             download
             className="px-6 py-3 border border-white/10 hover:border-accent/50 text-gray-300 hover:text-white text-sm font-medium rounded-lg transition-all duration-200 hover:-translate-y-0.5"
           >
