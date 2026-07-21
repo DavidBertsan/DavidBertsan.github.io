@@ -3,17 +3,6 @@ import { useLang } from '../LangContext'
 
 const projects = [
   {
-    title: 'Client App — Panel de Control Móvil',
-    description: {
-      en: 'Managing hosting services, domains and DNS from a phone — that was the gap. Built during my internship alongside another developer, connecting to a custom REST API with JWT auth and auto refresh. Includes full demo mode with mocks so it runs without the real server.',
-      es: 'Gestionar servicios de hosting, dominios y DNS desde el móvil — ese era el hueco. Construida durante mis prácticas junto a otro desarrollador, conecta con una API REST propia con autenticación JWT y refresco automático. Incluye modo demo completo con mocks para funcionar sin el servidor real.',
-    },
-    images: ['/screenshots/clientapp-login.png', '/screenshots/clientapp.png', '/screenshots/clientapp-domains.png', '/screenshots/clientapp-hostings.png'],
-    tags: ['Kotlin', 'KMP', 'Jetpack Compose', 'Clean Architecture', 'Ktor', 'Koin'],
-    github: 'https://github.com/DavidBertsan/client-app',
-    accent: '#f59e0b',
-  },
-  {
     title: 'QuickAdapt',
     description: {
       en: 'Most SMEs manage their business with spreadsheets or tools that don\'t fit. QuickAdapt covers inventory, time tracking, projects and messaging in one app — with a custom Ktor backend, multi-company support and Clean Architecture from day one.',
@@ -33,6 +22,17 @@ const projects = [
     tags: ['Ktor', 'PostgreSQL', 'HikariCP', 'BCrypt'],
     github: 'https://github.com/DavidBertsan/QuickAdapt_backend',
     accent: '#8b5cf6',
+  },
+  {
+    title: 'Client App — Panel de Control Móvil',
+    description: {
+      en: 'Managing hosting services, domains and DNS from a phone — that was the gap. Built during my internship alongside another developer, connecting to a custom REST API with JWT auth and auto refresh. Includes full demo mode with mocks so it runs without the real server.',
+      es: 'Gestionar servicios de hosting, dominios y DNS desde el móvil — ese era el hueco. Construida durante mis prácticas junto a otro desarrollador, conecta con una API REST propia con autenticación JWT y refresco automático. Incluye modo demo completo con mocks para funcionar sin el servidor real.',
+    },
+    images: ['/screenshots/clientapp-login.png', '/screenshots/clientapp.png', '/screenshots/clientapp-domains.png', '/screenshots/clientapp-hostings.png'],
+    tags: ['Kotlin', 'KMP', 'Jetpack Compose', 'Clean Architecture', 'Ktor', 'Koin'],
+    github: 'https://github.com/DavidBertsan/client-app',
+    accent: '#f59e0b',
   },
 ]
 
