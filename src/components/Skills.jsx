@@ -1,10 +1,10 @@
 import { useLang } from '../LangContext'
 
-const featured = ['Java', 'Spring Boot', 'Kotlin', 'Jetpack Compose']
+const featured = ['Java', 'Spring Boot', 'PostgreSQL', 'Kotlin']
 
 const groups = [
-  { labelKey: 'Mobile',    skills: ['KMP', 'Coroutines', 'MVVM', 'Clean Architecture', 'Koin'] },
-  { labelKey: 'Backend',   skills: ['Ktor', 'PostgreSQL', 'REST API', 'HikariCP'] },
+  { labelKey: 'Mobile',    skills: ['Jetpack Compose', 'KMP', 'Coroutines', 'MVVM', 'Clean Architecture', 'Koin'] },
+  { labelKey: 'Backend',   skills: ['Ktor', 'REST API', 'HikariCP'] },
   { labelKey: 'tools',     skills: ['Android Studio', 'IntelliJ IDEA', 'Git', 'GitHub', 'Scrum'] },
 ]
 
