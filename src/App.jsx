@@ -12,7 +12,7 @@ function App() {
 
   return (
     <LangProvider>
-      <div className="min-h-screen bg-base text-gray-300 font-sans">
+      <div className="min-h-screen">
         <Navbar />
         <main>
           <Hero />
@@ -21,8 +21,11 @@ function App() {
           <Projects />
           <Contact />
         </main>
-        <footer className="py-8 text-center text-gray-600 text-sm border-t border-white/5">
-          <p>David Bertomeu Sánchez · {new Date().getFullYear()}</p>
+        <footer className="py-8 px-4 border-t border-line font-mono text-[11px] uppercase tracking-wider text-ink-soft">
+          <div className="max-w-5xl mx-auto flex flex-wrap justify-between gap-2">
+            <span>David Bertomeu Sánchez · {new Date().getFullYear()}</span>
+            <span>Rev. {new Date().getFullYear()} · 1:1</span>
+          </div>
         </footer>
       </div>
     </LangProvider>

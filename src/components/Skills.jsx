@@ -1,62 +1,53 @@
 import { useLang } from '../LangContext'
 
-const featured = ['Java', 'Spring Boot', 'PostgreSQL', 'Kotlin']
-
-const groups = [
-  { labelKey: 'Mobile',    skills: ['Jetpack Compose', 'KMP', 'Coroutines', 'MVVM', 'Clean Architecture', 'Koin'] },
-  { labelKey: 'Backend',   skills: ['Ktor', 'REST API', 'HikariCP'] },
-  { labelKey: 'tools',     skills: ['Android Studio', 'IntelliJ IDEA', 'Git', 'GitHub', 'Scrum'] },
+// Each material is tied to the work where it was actually used.
+const materials = [
+  { name: 'Java · Spring Boot', where: ['YListo'], main: true },
+  { name: 'Spring Security · JWT', where: ['YListo'], main: true },
+  { name: 'PostgreSQL · JPA / Hibernate', where: ['YListo', 'QuickAdapt Backend'], main: true },
+  { name: 'JUnit 5 · Mockito · Testcontainers', where: ['YListo'], main: true },
+  { name: 'Docker · GitHub Actions', where: ['YListo'] },
+  { name: 'Kotlin · Ktor', where: ['QuickAdapt Backend', 'Client App'] },
+  { name: 'Kotlin Multiplatform · Jetpack Compose', where: ['QuickAdapt', 'Client App'] },
+  { name: 'Clean Architecture · MVVM', where: ['QuickAdapt', 'Client App'] },
+  { name: 'REST APIs · Git · Scrum', where: ['Everywhere'] },
 ]
 
 export default function Skills() {
-  const { t } = useLang()
+  const { lang, t } = useLang()
 
   return (
-    <section id="skills" className="py-28 px-6 bg-surface/40">
-      <div className="max-w-3xl mx-auto">
-        <p className="reveal text-accent text-sm font-medium tracking-widest uppercase mb-3">
-          {t.skills_label}
-        </p>
-        <h2 className="reveal reveal-delay-1 text-3xl md:text-4xl font-bold text-white mb-12 tracking-tight">
+    <section id="skills" className="py-24 px-4 sm:px-6">
+      <div className="max-w-5xl mx-auto">
+        <p className="reveal part-label mb-6">{t.part} 02 — {t.skills_label}</p>
+        <h2 className="reveal reveal-delay-1 font-display font-semibold text-4xl sm:text-5xl text-ink mb-12 tracking-tight max-w-3xl">
           {t.skills_heading}
         </h2>
 
-        <div className="reveal mb-10">
-          <h3 className="text-sm font-semibold text-accent tracking-widest uppercase mb-4">
-            {t.skills_featured}
-          </h3>
-          <div className="flex flex-wrap gap-3">
-            {featured.map((skill, idx) => (
-              <span
-                key={skill}
-                className="chip-animate px-4 py-2 text-base font-semibold text-white bg-accent/15 border border-accent/50 rounded-md hover:bg-accent/25 transition-all duration-200"
-                style={{ animationDelay: `${idx * 0.05}s` }}
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        <div className="grid sm:grid-cols-2 gap-8">
-          {groups.map((group, i) => (
-            <div key={group.labelKey} className={`reveal reveal-delay-${(i % 4) + 1}`}>
-              <h3 className="text-sm font-semibold text-accent tracking-widest uppercase mb-4">
-                {group.labelKey === 'tools' ? t.skills_tools : group.labelKey}
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {group.skills.map((skill, idx) => (
-                  <span
-                    key={skill}
-                    className="chip-animate px-3 py-1.5 text-sm text-gray-300 bg-white/5 border border-white/8 rounded-md hover:border-accent/40 hover:text-white transition-all duration-200"
-                    style={{ animationDelay: `${i * 0.1 + idx * 0.05}s` }}
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
+        <div className="reveal reveal-delay-2 frame overflow-x-auto">
+          <table className="w-full text-left">
+            <thead className="font-mono text-[11px] uppercase tracking-wider text-ink-soft">
+              <tr className="border-b border-ink">
+                <th className="px-4 py-3 w-12 font-medium">#</th>
+                <th className="px-4 py-3 font-medium">{t.skills_cols[0]}</th>
+                <th className="px-4 py-3 font-medium">{t.skills_cols[1]}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {materials.map((m, i) => (
+                <tr key={m.name} className="border-b border-ink/15 last:border-0 hover:bg-paper-deep/60 transition-colors">
+                  <td className="px-4 py-3 font-mono text-xs text-ink-soft">{String(i + 1).padStart(2, '0')}</td>
+                  <td className={`px-4 py-3 ${m.main ? 'font-semibold text-ink' : 'text-ink'}`}>
+                    {m.main && <span className="text-check mr-2" aria-hidden="true">●</span>}
+                    {m.name}
+                  </td>
+                  <td className="px-4 py-3 font-mono text-xs text-ink-soft">
+                    {m.where.map(w => (w === 'Everywhere' && lang === 'es' ? 'En todo' : w === 'Everywhere' ? 'Everything' : w)).join(' · ')}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </section>

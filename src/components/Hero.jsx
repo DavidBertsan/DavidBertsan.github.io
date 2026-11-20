@@ -1,102 +1,60 @@
-import { useEffect, useState } from 'react'
 import { useLang } from '../LangContext'
 
 export default function Hero() {
   const { lang, t } = useLang()
-  const [titleIndex, setTitleIndex] = useState(0)
-  const [displayed, setDisplayed] = useState('')
-  const [deleting, setDeleting] = useState(false)
-
-  useEffect(() => {
-    setTitleIndex(0)
-    setDisplayed('')
-    setDeleting(false)
-  }, [lang])
-
-  useEffect(() => {
-    const titles = t.hero_titles
-    const current = titles[titleIndex]
-    let timeout
-
-    if (!deleting && displayed.length < current.length) {
-      timeout = setTimeout(() => setDisplayed(current.slice(0, displayed.length + 1)), 80)
-    } else if (!deleting && displayed.length === current.length) {
-      timeout = setTimeout(() => setDeleting(true), 2000)
-    } else if (deleting && displayed.length > 0) {
-      timeout = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 45)
-    } else if (deleting && displayed.length === 0) {
-      setDeleting(false)
-      setTitleIndex((i) => (i + 1) % titles.length)
-    }
-
-    return () => clearTimeout(timeout)
-  }, [displayed, deleting, titleIndex, t.hero_titles])
+  const rows = Object.values(t.hero_block)
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center px-6 text-center relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/5 rounded-full blur-3xl" />
-      </div>
+    <section className="min-h-screen flex items-center px-4 sm:px-6 pt-20 pb-16">
+      <div className="max-w-5xl w-full mx-auto animate-fade-in">
+        <p className="part-label mb-8">{t.sheet} 01 · {t.part} 00</p>
 
-      <div className="relative animate-fade-in">
-        <div className="flex justify-center mb-4">
-          <span className="px-3 py-1 text-xs font-medium rounded-full bg-accent/10 text-accent border border-accent/20">
-            {lang === 'es' ? 'Disponible · Remoto' : 'Available · Open to Remote'}
-          </span>
-        </div>
-        <p className="text-accent text-sm font-medium tracking-widest uppercase mb-4">
-          {t.hero_greeting}
-        </p>
-        <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 tracking-tight">
-          David Bertomeu
+        <h1 className="font-display font-extrabold text-ink leading-[0.95] tracking-tight text-[clamp(3rem,11vw,7.5rem)]">
+          David<br />Bertomeu<span className="text-check">.</span>
         </h1>
-        <div className="h-10 flex items-center justify-center gap-1 mb-8">
-          <span className="text-xl md:text-2xl text-gray-400 font-light">
-            {displayed}
-          </span>
-          <span className="w-0.5 h-6 bg-accent animate-blink" />
+
+        {/* Dimension line under the name, like a measured drawing */}
+        <div className="mt-6 mb-10 flex flex-wrap items-center gap-3 max-w-xl">
+          <div className="flex flex-1 min-w-[5rem] items-center">
+            <span className="w-px h-3 bg-ink" />
+            <span className="h-px flex-1 bg-ink origin-left animate-draw" />
+            <span className="w-px h-3 bg-ink" />
+          </div>
+          <span className="font-mono text-xs text-ink-soft">{t.hero_role}</span>
         </div>
 
-        <div className="flex gap-4 justify-center flex-wrap">
-          <a
-            href="https://github.com/DavidBertsan"
-            target="_blank"
-            rel="noreferrer"
-            className="px-6 py-3 bg-accent hover:bg-accent-light text-white text-sm font-medium rounded-lg transition-all duration-200 hover:-translate-y-0.5"
-          >
-            GitHub
-          </a>
-          <a
-            href="https://www.linkedin.com/in/david-bertomeu-sanchez-923b5b337"
-            target="_blank"
-            rel="noreferrer"
-            className="px-6 py-3 border border-white/10 hover:border-accent/50 text-gray-300 hover:text-white text-sm font-medium rounded-lg transition-all duration-200 hover:-translate-y-0.5"
-          >
-            LinkedIn
-          </a>
-          <a
-            href={lang === 'es' ? '/CV.pdf' : '/CV_EN.pdf'}
-            download
-            className="px-6 py-3 border border-white/10 hover:border-accent/50 text-gray-300 hover:text-white text-sm font-medium rounded-lg transition-all duration-200 hover:-translate-y-0.5"
-          >
-            {t.hero_cv}
-          </a>
-          <a
-            href="#projects"
-            className="px-6 py-3 border border-white/10 hover:border-accent/50 text-gray-300 hover:text-white text-sm font-medium rounded-lg transition-all duration-200 hover:-translate-y-0.5"
-          >
-            {t.hero_cta}
-          </a>
+        <div className="grid md:grid-cols-[1fr_auto] gap-10 items-end">
+          <p className="font-display italic text-2xl sm:text-3xl text-ink-soft max-w-md">
+            “{t.hero_motto}”
+          </p>
+
+          {/* Title block (cajetín) of the drawing */}
+          <dl className="frame w-full md:w-[22rem] font-mono text-xs">
+            {rows.map(([label, value], i) => (
+              <div key={label} className={`grid grid-cols-[6.5rem_1fr] ${i > 0 ? 'border-t border-ink/30' : ''}`}>
+                <dt className="px-3 py-2 uppercase tracking-wider text-ink-soft border-r border-ink/30">{label}</dt>
+                <dd className="px-3 py-2 text-ink">
+                  {label === t.hero_block.status[0] ? (
+                    <span className="inline-flex items-center gap-1.5 text-check font-semibold">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" aria-hidden="true">
+                        <path d="M4 12l5 5L20 6" />
+                      </svg>
+                      {value}
+                    </span>
+                  ) : value}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+
+        <div className="mt-12 flex flex-wrap gap-x-8 gap-y-4">
+          <a href="#projects" className="ink-link">{t.hero_cta} ↓</a>
+          <a href={lang === 'es' ? '/CV.pdf' : '/CV_EN.pdf'} download className="ink-link">{t.hero_cv} ↗</a>
+          <a href="https://github.com/DavidBertsan" target="_blank" rel="noreferrer" className="ink-link">GitHub ↗</a>
+          <a href="https://www.linkedin.com/in/david-bertomeu-sanchez-923b5b337" target="_blank" rel="noreferrer" className="ink-link">LinkedIn ↗</a>
         </div>
       </div>
-
-      <a
-        href="#about"
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-gray-600 hover:text-gray-400 transition-colors"
-      >
-        <span className="text-xs tracking-widest uppercase">{t.hero_scroll}</span>
-        <div className="w-px h-8 bg-gradient-to-b from-gray-600 to-transparent" />
-      </a>
     </section>
   )
 }

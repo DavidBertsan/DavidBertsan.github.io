@@ -15,34 +15,30 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-[#080810]/90 backdrop-blur-md border-b border-white/5'
-          : 'bg-transparent'
+      className={`fixed top-0 inset-x-0 z-40 transition-all duration-300 ${
+        scrolled ? 'bg-paper/90 backdrop-blur-sm border-b border-line' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between font-mono text-xs uppercase tracking-wider">
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="text-xl text-white font-semibold tracking-tight hover:opacity-80 transition-opacity"
+          className="text-ink hover:text-check transition-colors"
         >
-          d<span className="text-accent">/</span>b
+          D.B. <span className="text-ink-soft">/ {t.sheet} 01</span>
         </button>
-        <ul className="flex items-center gap-8">
+        <ul className="flex items-center gap-5 sm:gap-7">
           {t.nav.map((label, i) => (
-            <li key={hrefs[i]}>
-              <a
-                href={hrefs[i]}
-                className="text-sm text-gray-400 hover:text-white transition-colors duration-200"
-              >
-                {label}
+            <li key={hrefs[i]} className="hidden sm:block">
+              <a href={hrefs[i]} className="text-ink-soft hover:text-ink transition-colors">
+                <span className="text-check">0{i + 1}</span> {label}
               </a>
             </li>
           ))}
           <li>
             <button
               onClick={toggle}
-              className="text-sm text-gray-400 hover:text-white transition-colors duration-200 border border-white/10 hover:border-accent/50 px-2.5 py-1 rounded-md"
+              aria-label={lang === 'en' ? 'Cambiar a español' : 'Switch to English'}
+              className="text-ink border border-ink/60 px-2 py-0.5 hover:bg-ink hover:text-paper transition-colors"
             >
               {lang === 'en' ? 'ES' : 'EN'}
             </button>

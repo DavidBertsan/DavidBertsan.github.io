@@ -4,31 +4,31 @@ export default {
   theme: {
     extend: {
       colors: {
-        accent: '#6366f1',
-        'accent-light': '#818cf8',
-        surface: '#0f0f1a',
-        base: '#080810',
+        paper: '#F2EEE4',
+        'paper-deep': '#E8E2D4',
+        ink: '#18263A',
+        'ink-soft': '#4A5A70',
+        line: '#C9C2B2',
+        check: '#2E8B57',
+        stamp: '#B8432F',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Fraunces', 'Georgia', 'serif'],
+        sans: ['"IBM Plex Sans"', 'system-ui', 'sans-serif'],
+        mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
       },
       animation: {
-        'fade-up': 'fadeUp 0.7s ease forwards',
         'fade-in': 'fadeIn 0.8s ease forwards',
-        blink: 'blink 1s step-end infinite',
+        draw: 'draw 1.4s ease forwards',
       },
       keyframes: {
-        fadeUp: {
-          '0%': { opacity: '0', transform: 'translateY(28px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
         fadeIn: {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' },
         },
-        blink: {
-          '0%, 100%': { opacity: '1' },
-          '50%': { opacity: '0' },
+        draw: {
+          '0%': { transform: 'scaleX(0)' },
+          '100%': { transform: 'scaleX(1)' },
         },
       },
     },
