@@ -24,7 +24,8 @@ export default function Skills() {
           {t.skills_heading}
         </h2>
 
-        <div className="reveal reveal-delay-2 frame overflow-x-auto">
+        <div className="reveal reveal-delay-2 frame">
+          <div className="overflow-x-auto">
           <table className="w-full text-left">
             <thead className="font-mono text-[11px] uppercase tracking-wider text-ink-soft">
               <tr className="border-b border-ink">
@@ -48,6 +49,7 @@ export default function Skills() {
               ))}
             </tbody>
           </table>
+          </div>
         </div>
       </div>
     </section>

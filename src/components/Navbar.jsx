@@ -22,9 +22,10 @@ export default function Navbar() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between font-mono text-xs uppercase tracking-wider">
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="text-ink hover:text-check transition-colors"
+          className="font-display normal-case tracking-tight text-xl font-semibold text-ink hover:opacity-80 transition-opacity"
+          aria-label="Back to top"
         >
-          D.B. <span className="text-ink-soft">/ {t.sheet} 01</span>
+          d<span className="text-check">/</span>b
         </button>
         <ul className="flex items-center gap-5 sm:gap-7">
           {t.nav.map((label, i) => (
