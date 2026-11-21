@@ -89,19 +89,16 @@ export default function Projects() {
     <>
       <section id="projects" className="py-24 px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
-          <p className="reveal part-label mb-6">{t.part} 03 — {t.projects_label}</p>
+          <p className="reveal part-label mb-6">03 — {t.projects_label}</p>
           <h2 className="reveal reveal-delay-1 font-display font-semibold text-4xl sm:text-5xl text-ink mb-14 tracking-tight">
             {t.projects_heading}
           </h2>
 
           <div className="space-y-14">
-            {projects.map((project, i) => (
+            {projects.map(project => (
               <article key={project.title} className="reveal frame p-5 sm:p-8">
                 <header className="flex flex-wrap items-start justify-between gap-4 mb-5">
                   <div>
-                    <p className="font-mono text-[11px] uppercase tracking-wider text-ink-soft mb-1">
-                      {t.part} 03.{i + 1}
-                    </p>
                     <h3 className="font-display font-semibold text-3xl text-ink">{project.title}</h3>
                   </div>
                   {project.wip && <span className="stamp mt-2">{t.wip}</span>}

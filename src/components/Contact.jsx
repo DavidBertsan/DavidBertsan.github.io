@@ -6,7 +6,7 @@ export default function Contact() {
   return (
     <section id="contact" className="py-24 px-4 sm:px-6">
       <div className="max-w-5xl mx-auto">
-        <p className="reveal part-label mb-6">{t.part} 04 — {t.contact_label}</p>
+        <p className="reveal part-label mb-6">04 — {t.contact_label}</p>
 
         <div className="reveal reveal-delay-1 frame p-6 sm:p-10 grid md:grid-cols-[1fr_auto] gap-10 items-end">
           <div>

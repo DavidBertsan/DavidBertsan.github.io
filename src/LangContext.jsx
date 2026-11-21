@@ -3,8 +3,6 @@ import { createContext, useContext, useState } from 'react'
 const translations = {
   en: {
     nav: ['About', 'Skills', 'Projects', 'Contact'],
-    sheet: 'Sheet',
-    part: 'Part',
     hero_role: 'Backend Developer · Java & Spring Boot',
     hero_block: {
       education: ['Education', 'DAM (2026)'],
@@ -39,8 +37,6 @@ const translations = {
   },
   es: {
     nav: ['Sobre mí', 'Tecnologías', 'Proyectos', 'Contacto'],
-    sheet: 'Plano',
-    part: 'Pieza',
     hero_role: 'Desarrollador Backend · Java & Spring Boot',
     hero_block: {
       education: ['Formación', 'DAM (2026)'],

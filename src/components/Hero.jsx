@@ -7,8 +7,6 @@ export default function Hero() {
   return (
     <section className="min-h-screen flex items-center px-4 sm:px-6 pt-20 pb-16">
       <div className="max-w-5xl w-full mx-auto animate-fade-in">
-        <p className="part-label mb-8">{t.sheet} 01 · {t.part} 00</p>
-
         <h1 className="font-display font-extrabold text-ink leading-[0.95] tracking-tight text-[clamp(3rem,11vw,7.5rem)]">
           David<br />Bertomeu<span className="text-check">.</span>
         </h1>

@@ -19,7 +19,7 @@ export default function Skills() {
   return (
     <section id="skills" className="py-24 px-4 sm:px-6">
       <div className="max-w-5xl mx-auto">
-        <p className="reveal part-label mb-6">{t.part} 02 — {t.skills_label}</p>
+        <p className="reveal part-label mb-6">02 — {t.skills_label}</p>
         <h2 className="reveal reveal-delay-1 font-display font-semibold text-4xl sm:text-5xl text-ink mb-12 tracking-tight max-w-3xl">
           {t.skills_heading}
         </h2>
