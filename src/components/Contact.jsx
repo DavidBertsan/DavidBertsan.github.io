@@ -30,8 +30,7 @@ export default function Contact() {
           <div className="md:w-56 border-t md:border-t-0 md:border-l border-ink/30 pt-6 md:pt-0 md:pl-8">
             <p className="font-display italic text-3xl text-ink mb-1">D. Bertomeu</p>
             <div className="h-px bg-ink mb-2" />
-            <p className="font-mono text-[11px] uppercase tracking-wider text-ink-soft mb-4">{t.hero_block.author[0]}</p>
-            <span className="stamp !text-check !border-check">✓ {t.approved}</span>
+            <p className="font-mono text-[11px] uppercase tracking-wider text-ink-soft">{t.hero_block.author[0]}</p>
           </div>
         </div>
       </div>

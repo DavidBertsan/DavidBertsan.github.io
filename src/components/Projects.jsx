@@ -6,8 +6,8 @@ const projects = [
     title: 'YListo',
     wip: true,
     description: {
-      en: 'Management for small businesses (butcher shops, bars, clothing stores): clock-in, team and inventory. One cloud app for all of them, where each business only ever sees its own data. Rebuilt from my final-year project, this time in Java and Spring Boot.',
-      es: 'Gestión para pequeños negocios (carnicerías, bares, tiendas de ropa): fichaje, equipo e inventario. Una sola app en la nube para todos, donde cada negocio solo ve sus propios datos. Reconstruido a partir de mi proyecto final, esta vez con Java y Spring Boot.',
+      en: 'Backend for small business management: clock-in, team and inventory. Multi-tenant, each business only sees its own data. Rebuild of my final-year project in Java and Spring Boot.',
+      es: 'Backend de gestión para pequeños negocios: fichaje, equipo e inventario. Multi-tenant, cada negocio solo ve sus propios datos. Reconstrucción de mi proyecto final con Java y Spring Boot.',
     },
     facts: {
       en: ['JWT auth with roles', 'Multi-tenant: the business comes from the token', '49 tests: unit, web and integration with real PostgreSQL'],
@@ -20,8 +20,8 @@ const projects = [
   {
     title: 'QuickAdapt',
     description: {
-      en: "Most SMEs manage their business with spreadsheets or tools that don't fit. QuickAdapt covers inventory, time tracking, projects and messaging in one app — with its own backend, multi-company support and Clean Architecture from day one.",
-      es: 'La mayoría de las pymes gestionan su negocio con hojas de cálculo o herramientas que no encajan. QuickAdapt cubre inventario, control de jornada, proyectos y mensajería en una app — con backend propio, soporte multiempresa y Clean Architecture desde el primer día.',
+      en: 'My final-year project. Business management app for small companies: inventory, time tracking, projects and messaging. Multi-company, with its own backend and Clean Architecture.',
+      es: 'Mi proyecto final de DAM. App de gestión para pequeñas empresas: inventario, control de jornada, proyectos y mensajería. Multiempresa, con backend propio y Clean Architecture.',
     },
     images: ['/screenshots/quickadapt.png', '/screenshots/quickadapt-light.png', '/screenshots/quickadapt-messages.png', '/screenshots/quickadapt-movements.png'],
     tags: ['Kotlin', 'KMP', 'Jetpack Compose', 'Clean Architecture'],
@@ -39,8 +39,8 @@ const projects = [
   {
     title: 'Client App',
     description: {
-      en: 'Managing hosting, domains and DNS from a phone — that was the gap. Built during my internship alongside another developer, against a real REST API with JWT auth and automatic refresh. Includes a demo mode with mocks so it runs without the real server.',
-      es: 'Gestionar hosting, dominios y DNS desde el móvil — ese era el hueco. Construida en mis prácticas junto a otro desarrollador, contra una API REST real con autenticación JWT y refresco automático. Incluye un modo demo con mocks para funcionar sin el servidor real.',
+      en: 'Mobile app to manage hosting, domains and DNS. Built during my internship with another developer, against the company’s REST API with JWT auth and automatic token refresh. Includes a demo mode with mocks that runs without the real server.',
+      es: 'App móvil para gestionar hosting, dominios y DNS. Desarrollada en mis prácticas junto a otro desarrollador, contra la API REST de la empresa con autenticación JWT y refresco automático del token. Incluye un modo demo con mocks que funciona sin el servidor real.',
     },
     images: ['/screenshots/clientapp-login.png', '/screenshots/clientapp.png', '/screenshots/clientapp-domains.png', '/screenshots/clientapp-hostings.png'],
     tags: ['Kotlin', 'KMP', 'Jetpack Compose', 'Ktor', 'Koin'],

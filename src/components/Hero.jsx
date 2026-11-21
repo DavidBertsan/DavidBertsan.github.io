@@ -23,11 +23,7 @@ export default function Hero() {
           <span className="font-mono text-xs text-ink-soft">{t.hero_role}</span>
         </div>
 
-        <div className="grid md:grid-cols-[1fr_auto] gap-10 items-end">
-          <p className="font-display italic text-2xl sm:text-3xl text-ink-soft max-w-md">
-            “{t.hero_motto}”
-          </p>
-
+        <div>
           {/* Title block (cajetín) of the drawing */}
           <dl className="frame w-full md:w-[22rem] font-mono text-xs">
             {rows.map(([label, value], i) => (
