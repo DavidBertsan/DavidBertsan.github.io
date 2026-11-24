@@ -6,14 +6,14 @@ const projects = [
     title: 'YListo',
     wip: true,
     description: {
-      en: 'Backend for small business management: clock-in, team and inventory. Multi-tenant, each business only sees its own data. Rebuild of my final-year project in Java and Spring Boot.',
-      es: 'Backend de gestión para pequeños negocios: fichaje, equipo e inventario. Multi-tenant, cada negocio solo ve sus propios datos. Reconstrucción de mi proyecto final con Java y Spring Boot.',
+      en: 'REST API for small business management: clock-in, team, shifts, inventory with stock movements, profiles and messaging. Multi-tenant, each business only sees its own data. Rebuild of my final-year project in Java and Spring Boot.',
+      es: 'API REST de gestión para pequeños negocios: fichaje, equipo, turnos, inventario con movimientos de stock, perfil y mensajería. Multi-tenant, cada negocio solo ve sus propios datos. Reconstrucción de mi proyecto final con Java y Spring Boot.',
     },
     facts: {
-      en: ['JWT auth with roles', 'Multi-tenant: the business comes from the token', '49 tests: unit, web and integration with real PostgreSQL'],
-      es: ['Autenticación JWT con roles', 'Multi-tenant: el negocio sale del token', '49 tests: unitarios, web e integración con PostgreSQL real'],
+      en: ['JWT auth with admin and employee roles', 'Multi-tenant: the business comes from the token, never from the request', 'Stock movements in one transaction, with optimistic locking for concurrent sales', '105 tests: unit, web and integration with real PostgreSQL (Testcontainers)'],
+      es: ['Autenticación JWT con roles de admin y empleado', 'Multi-tenant: el negocio sale del token, nunca de la petición', 'Movimientos de stock en una transacción, con bloqueo optimista para ventas concurrentes', '105 tests: unitarios, web e integración con PostgreSQL real (Testcontainers)'],
     },
-    tags: ['Java 25', 'Spring Boot 4', 'Spring Security', 'PostgreSQL', 'Testcontainers', 'Docker'],
+    tags: ['Java 25', 'Spring Boot 4', 'Spring Security', 'Spring Data JPA', 'PostgreSQL', 'Testcontainers', 'Docker', 'GitHub Actions'],
     github: 'https://github.com/DavidBertsan/ylisto-backend',
     terminal: true,
   },
@@ -54,8 +54,9 @@ function ApiTrace() {
     ['POST', '/signup', '201 Created'],
     ['POST', '/login', '200 OK · token'],
     ['POST', '/clockings/clock-in', '201 Created'],
-    ['GET', '/team', '200 OK'],
-    ['GET', '/products', '200 OK'],
+    ['POST', '/shifts', '201 Created'],
+    ['POST', '/movements', '201 Created'],
+    ['GET', '/conversations', '200 OK'],
   ]
   return (
     <div className="bg-ink text-paper font-mono text-xs sm:text-sm p-4 sm:p-5 mb-6 overflow-x-auto" aria-label="API flow">
