@@ -31,7 +31,7 @@ export default function Navbar() {
           {t.nav.map((label, i) => (
             <li key={hrefs[i]} className="hidden sm:block">
               <a href={hrefs[i]} className="text-ink-soft hover:text-ink transition-colors">
-                <span className="text-check">0{i + 1}</span> {label}
+                {label}
               </a>
             </li>
           ))}

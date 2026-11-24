@@ -6,7 +6,6 @@ export default function About() {
   return (
     <section id="about" className="py-24 px-4 sm:px-6">
       <div className="max-w-5xl mx-auto">
-        <p className="reveal part-label mb-6">01 — {t.about_label}</p>
         <h2 className="reveal reveal-delay-1 font-display font-semibold text-4xl sm:text-5xl text-ink mb-12 tracking-tight">
           {t.about_heading}
         </h2>
@@ -25,9 +24,6 @@ export default function About() {
                 alt="David Bertomeu"
                 className="w-full aspect-square object-cover grayscale contrast-125"
               />
-              <figcaption className="font-mono text-[10px] uppercase tracking-wider text-ink-soft mt-2">
-                Fig. 1 — D. Bertomeu
-              </figcaption>
             </figure>
 
             {/* Timeline drawn as a vertical axis with nodes */}

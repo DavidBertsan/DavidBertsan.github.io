@@ -10,8 +10,8 @@ const projects = [
       es: 'API REST de gestión para pequeños negocios: fichaje, equipo, turnos, inventario con movimientos de stock, perfil y mensajería. Multi-tenant, cada negocio solo ve sus propios datos. Reconstrucción de mi proyecto final con Java y Spring Boot.',
     },
     facts: {
-      en: ['JWT auth with admin and employee roles', 'Multi-tenant: the business comes from the token, never from the request', 'Stock movements in one transaction, with optimistic locking for concurrent sales', '105 tests: unit, web and integration with real PostgreSQL (Testcontainers)'],
-      es: ['Autenticación JWT con roles de admin y empleado', 'Multi-tenant: el negocio sale del token, nunca de la petición', 'Movimientos de stock en una transacción, con bloqueo optimista para ventas concurrentes', '105 tests: unitarios, web e integración con PostgreSQL real (Testcontainers)'],
+      en: ['JWT auth with admin and employee roles', 'Multi-tenant, the business is read from the JWT', 'Stock movements in one transaction, with optimistic locking for concurrent sales', '105 tests: unit, web and integration with real PostgreSQL (Testcontainers)'],
+      es: ['Autenticación JWT con roles de admin y empleado', 'Multi-tenant, el negocio se lee del JWT', 'Movimientos de stock en una transacción, con bloqueo optimista para ventas concurrentes', '105 tests: unitarios, web e integración con PostgreSQL real (Testcontainers)'],
     },
     tags: ['Java 25', 'Spring Boot 4', 'Spring Security', 'Spring Data JPA', 'PostgreSQL', 'Testcontainers', 'Docker', 'GitHub Actions'],
     github: 'https://github.com/DavidBertsan/ylisto-backend',
@@ -52,7 +52,7 @@ const projects = [
 function ApiTrace() {
   const lines = [
     ['POST', '/signup', '201 Created'],
-    ['POST', '/login', '200 OK · token'],
+    ['POST', '/login', '200 OK'],
     ['POST', '/clockings/clock-in', '201 Created'],
     ['POST', '/shifts', '201 Created'],
     ['POST', '/movements', '201 Created'],
@@ -64,7 +64,7 @@ function ApiTrace() {
         <div key={path} className="flex gap-3 whitespace-nowrap leading-7">
           <span className="text-paper/50 w-10">{method}</span>
           <span className="flex-1">{path}</span>
-          <span className="text-[#7FD3A1]">✓ {result}</span>
+          <span className="text-[#7FD3A1]">{result}</span>
         </div>
       ))}
     </div>
@@ -90,7 +90,6 @@ export default function Projects() {
     <>
       <section id="projects" className="py-24 px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
-          <p className="reveal part-label mb-6">03 — {t.projects_label}</p>
           <h2 className="reveal reveal-delay-1 font-display font-semibold text-4xl sm:text-5xl text-ink mb-14 tracking-tight">
             {t.projects_heading}
           </h2>
@@ -125,10 +124,9 @@ export default function Projects() {
                 <p className="text-ink-soft leading-relaxed mb-5 max-w-3xl">{project.description[lang]}</p>
 
                 {project.facts && (
-                  <ul className="mb-6 space-y-1.5">
+                  <ul className="mb-6 space-y-1.5 list-disc pl-5 marker:text-ink-soft">
                     {project.facts[lang].map(fact => (
-                      <li key={fact} className="flex gap-2 text-sm text-ink">
-                        <span className="text-check" aria-hidden="true">✓</span>
+                      <li key={fact} className="text-sm text-ink">
                         {fact}
                       </li>
                     ))}
@@ -138,10 +136,10 @@ export default function Projects() {
                 <footer className="flex flex-wrap items-end justify-between gap-4 pt-5 border-t border-ink/20">
                   <div className="flex flex-wrap gap-x-3 gap-y-1 font-mono text-xs text-ink-soft">
                     <span className="uppercase tracking-wider">{t.spec_stack}:</span>
-                    {project.tags.join(' · ')}
+                    {project.tags.join(', ')}
                   </div>
                   <a href={project.github} target="_blank" rel="noreferrer" className="ink-link">
-                    {t.spec_code} ↗
+                    {t.spec_code}
                   </a>
                 </footer>
               </article>

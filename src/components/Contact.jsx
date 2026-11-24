@@ -6,9 +6,7 @@ export default function Contact() {
   return (
     <section id="contact" className="py-24 px-4 sm:px-6">
       <div className="max-w-5xl mx-auto">
-        <p className="reveal part-label mb-6">04 — {t.contact_label}</p>
-
-        <div className="reveal reveal-delay-1 frame p-6 sm:p-10 grid md:grid-cols-[1fr_auto] gap-10 items-end">
+        <div className="reveal reveal-delay-1 frame p-6 sm:p-10">
           <div>
             <h2 className="font-display font-semibold text-4xl sm:text-5xl text-ink mb-5 tracking-tight">
               {t.contact_heading}
@@ -21,16 +19,9 @@ export default function Contact() {
               bertodavid4@gmail.com
             </a>
             <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
-              <a href="https://www.linkedin.com/in/david-bertomeu-sanchez-923b5b337" target="_blank" rel="noreferrer" className="ink-link">LinkedIn ↗</a>
-              <a href="https://github.com/DavidBertsan" target="_blank" rel="noreferrer" className="ink-link">GitHub ↗</a>
+              <a href="https://www.linkedin.com/in/david-bertomeu-sanchez-923b5b337" target="_blank" rel="noreferrer" className="ink-link">LinkedIn</a>
+              <a href="https://github.com/DavidBertsan" target="_blank" rel="noreferrer" className="ink-link">GitHub</a>
             </div>
-          </div>
-
-          {/* Signature box of the drawing */}
-          <div className="md:w-56 border-t md:border-t-0 md:border-l border-ink/30 pt-6 md:pt-0 md:pl-8">
-            <p className="font-display italic text-3xl text-ink mb-1">D. Bertomeu</p>
-            <div className="h-px bg-ink mb-2" />
-            <p className="font-mono text-[11px] uppercase tracking-wider text-ink-soft">{t.hero_block.author[0]}</p>
           </div>
         </div>
       </div>

@@ -22,10 +22,7 @@ function App() {
           <Contact />
         </main>
         <footer className="py-8 px-4 border-t border-line font-mono text-[11px] uppercase tracking-wider text-ink-soft">
-          <div className="max-w-5xl mx-auto flex flex-wrap justify-between gap-2">
-            <span>David Bertomeu Sánchez · {new Date().getFullYear()}</span>
-            <span>Rev. {new Date().getFullYear()} · 1:1</span>
-          </div>
+          <div className="max-w-5xl mx-auto">David Bertomeu Sánchez, {new Date().getFullYear()}</div>
         </footer>
       </div>
     </LangProvider>

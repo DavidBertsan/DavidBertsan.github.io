@@ -43,10 +43,10 @@ export default function Hero() {
         </div>
 
         <div className="mt-12 flex flex-wrap gap-x-8 gap-y-4">
-          <a href="#projects" className="ink-link">{t.hero_cta} ↓</a>
-          <a href={lang === 'es' ? '/CV.pdf' : '/CV_EN.pdf'} download className="ink-link">{t.hero_cv} ↗</a>
-          <a href="https://github.com/DavidBertsan" target="_blank" rel="noreferrer" className="ink-link">GitHub ↗</a>
-          <a href="https://www.linkedin.com/in/david-bertomeu-sanchez-923b5b337" target="_blank" rel="noreferrer" className="ink-link">LinkedIn ↗</a>
+          <a href="#projects" className="ink-link">{t.hero_cta}</a>
+          <a href={lang === 'es' ? '/CV.pdf' : '/CV_EN.pdf'} download className="ink-link">{t.hero_cv}</a>
+          <a href="https://github.com/DavidBertsan" target="_blank" rel="noreferrer" className="ink-link">GitHub</a>
+          <a href="https://www.linkedin.com/in/david-bertomeu-sanchez-923b5b337" target="_blank" rel="noreferrer" className="ink-link">LinkedIn</a>
         </div>
       </div>
     </section>

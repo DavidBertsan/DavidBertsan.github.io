@@ -2,15 +2,15 @@ import { useLang } from '../LangContext'
 
 // Each material is tied to the work where it was actually used.
 const materials = [
-  { name: 'Java · Spring Boot', where: ['YListo'], main: true },
-  { name: 'Spring Security · JWT', where: ['YListo'], main: true },
-  { name: 'PostgreSQL · JPA / Hibernate', where: ['YListo', 'QuickAdapt Backend'], main: true },
-  { name: 'JUnit 5 · Mockito · Testcontainers', where: ['YListo'], main: true },
-  { name: 'Docker · GitHub Actions', where: ['YListo'] },
-  { name: 'Kotlin · Ktor', where: ['QuickAdapt Backend', 'Client App'] },
-  { name: 'Kotlin Multiplatform · Jetpack Compose', where: ['QuickAdapt', 'Client App'] },
-  { name: 'Clean Architecture · MVVM', where: ['QuickAdapt', 'Client App'] },
-  { name: 'REST APIs · Git · Scrum', where: ['Everywhere'] },
+  { name: 'Java, Spring Boot', where: ['YListo'], main: true },
+  { name: 'Spring Security, JWT', where: ['YListo'], main: true },
+  { name: 'PostgreSQL, JPA, Hibernate', where: ['YListo', 'QuickAdapt Backend'], main: true },
+  { name: 'JUnit 5, Mockito, Testcontainers', where: ['YListo'], main: true },
+  { name: 'Docker, GitHub Actions', where: ['YListo'] },
+  { name: 'Kotlin, Ktor', where: ['QuickAdapt Backend', 'Client App'] },
+  { name: 'Kotlin Multiplatform, Jetpack Compose', where: ['QuickAdapt', 'Client App'] },
+  { name: 'Clean Architecture, MVVM', where: ['QuickAdapt', 'Client App'] },
+  { name: 'REST APIs, Git, Scrum', where: ['Everywhere'] },
 ]
 
 export default function Skills() {
@@ -19,7 +19,6 @@ export default function Skills() {
   return (
     <section id="skills" className="py-24 px-4 sm:px-6">
       <div className="max-w-5xl mx-auto">
-        <p className="reveal part-label mb-6">02 — {t.skills_label}</p>
         <h2 className="reveal reveal-delay-1 font-display font-semibold text-4xl sm:text-5xl text-ink mb-12 tracking-tight max-w-3xl">
           {t.skills_heading}
         </h2>
@@ -39,11 +38,10 @@ export default function Skills() {
                 <tr key={m.name} className="border-b border-ink/15 last:border-0 hover:bg-paper-deep/60 transition-colors">
                   <td className="px-4 py-3 font-mono text-xs text-ink-soft">{String(i + 1).padStart(2, '0')}</td>
                   <td className={`px-4 py-3 ${m.main ? 'font-semibold text-ink' : 'text-ink'}`}>
-                    {m.main && <span className="text-check mr-2" aria-hidden="true">●</span>}
                     {m.name}
                   </td>
                   <td className="px-4 py-3 font-mono text-xs text-ink-soft">
-                    {m.where.map(w => (w === 'Everywhere' && lang === 'es' ? 'En todo' : w === 'Everywhere' ? 'Everything' : w)).join(' · ')}
+                    {m.where.map(w => (w === 'Everywhere' && lang === 'es' ? 'En todo' : w === 'Everywhere' ? 'Everything' : w)).join(', ')}
                   </td>
                 </tr>
               ))}
