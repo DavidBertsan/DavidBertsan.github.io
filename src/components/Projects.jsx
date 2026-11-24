@@ -13,7 +13,7 @@ const projects = [
       en: ['JWT auth with admin and employee roles', 'Multi-tenant, the business is read from the JWT', 'Stock movements in one transaction, with optimistic locking for concurrent sales', '105 tests: unit, web and integration with real PostgreSQL (Testcontainers)'],
       es: ['Autenticación JWT con roles de admin y empleado', 'Multi-tenant, el negocio se lee del JWT', 'Movimientos de stock en una transacción, con bloqueo optimista para ventas concurrentes', '105 tests: unitarios, web e integración con PostgreSQL real (Testcontainers)'],
     },
-    tags: ['Java 25', 'Spring Boot 4', 'Spring Security', 'Spring Data JPA', 'PostgreSQL', 'Testcontainers', 'Docker', 'GitHub Actions'],
+    tags: ['Java 25', 'Spring Boot 4', 'Spring Security', 'Spring Data JPA', 'PostgreSQL', 'Flyway', 'Testcontainers', 'Docker', 'GitHub Actions'],
     github: 'https://github.com/DavidBertsan/ylisto-backend',
     terminal: true,
   },
