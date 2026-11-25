@@ -14,7 +14,7 @@ const translations = {
     hero_cta: 'Projects',
     about_heading: 'About me',
     about_p1: 'I started a Computer Science degree and left it. Years later I studied DAM (Multiplatform Application Development), where I worked with Kotlin, Android and my first backend.',
-    about_p2: 'My final-year project was QuickAdapt, a business management app built with Kotlin Multiplatform and a Ktor backend. During my internship I built, with another developer, an app used by the company’s clients.',
+    about_p2: 'My final-year project was QuickAdapt, a business management app built with Kotlin Multiplatform and a Ktor backend. During my internship I built, as part of a development team working in SCRUM, an app used by the company’s clients.',
     about_p3: 'I rebuilt QuickAdapt’s backend as YListo, with Java and Spring Boot, and I’m now building its app.',
     timeline: [
       ['Before', 'Computer Science degree, not finished'],
@@ -44,7 +44,7 @@ const translations = {
     hero_cta: 'Proyectos',
     about_heading: 'Sobre mí',
     about_p1: 'Empecé Ingeniería Informática y la dejé. Años después estudié DAM (Desarrollo de Aplicaciones Multiplataforma), donde trabajé con Kotlin, Android y mi primer backend.',
-    about_p2: 'Mi proyecto final fue QuickAdapt, una app de gestión empresarial con Kotlin Multiplatform y backend en Ktor. En las prácticas desarrollé, junto a otro desarrollador, una app que usan los clientes de la empresa.',
+    about_p2: 'Mi proyecto final fue QuickAdapt, una app de gestión empresarial con Kotlin Multiplatform y backend en Ktor. En las prácticas desarrollé, dentro de un equipo de desarrollo con SCRUM, una app que usan los clientes de la empresa.',
     about_p3: 'He reconstruido el backend de QuickAdapt como YListo, con Java y Spring Boot, y ahora estoy haciendo su app.',
     timeline: [
       ['Antes', 'Ingeniería Informática, sin terminar'],

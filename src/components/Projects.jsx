@@ -39,8 +39,8 @@ const projects = [
   {
     title: 'Client App',
     description: {
-      en: 'Mobile app to manage hosting, domains and DNS. Built during my internship with another developer, against the company’s REST API with JWT auth and automatic token refresh. Includes a demo mode with mocks that runs without the real server.',
-      es: 'App móvil para gestionar hosting, dominios y DNS. Desarrollada en mis prácticas junto a otro desarrollador, contra la API REST de la empresa con autenticación JWT y refresco automático del token. Incluye un modo demo con mocks que funciona sin el servidor real.',
+      en: 'Mobile app to manage hosting, domains and DNS. Built during my internship as part of a development team working in SCRUM, against the company’s REST API with JWT auth and automatic token refresh. Includes a demo mode with mocks that runs without the real server.',
+      es: 'App móvil para gestionar hosting, dominios y DNS. Desarrollada en mis prácticas dentro de un equipo de desarrollo con SCRUM, contra la API REST de la empresa con autenticación JWT y refresco automático del token. Incluye un modo demo con mocks que funciona sin el servidor real.',
     },
     images: ['/screenshots/clientapp-login.png', '/screenshots/clientapp.png', '/screenshots/clientapp-domains.png', '/screenshots/clientapp-hostings.png'],
     tags: ['Kotlin', 'KMP', 'Jetpack Compose', 'Ktor', 'Koin'],
